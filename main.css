@@ -22,14 +22,24 @@
 
 body {
     background-color: #f0f0f0;
+		transition: all 2s ease;
+}
+
+@keyframes expand {
+  0% {
+    transform: translateX(1400px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }
 
 .magic-list {
     font-family: arsenal_f;
     font-size: calc(var(--index) * 2.75);
     padding: calc(var(--index) * 2.75);
-		opacity: 0;
-		animation: ani 2s forwards;
+		animation: expand 1.5s ease forwards;
+		will-change: animation;
 }
 
 .magic-list__item {
@@ -124,6 +134,8 @@ header {
 	color: #fff;
 	text-align: center;
 	padding: calc(var(--index) * .7);
+	opacity: 0;
+	animation: ani 1.5s forwards;
 }
 
 .copy {
@@ -150,53 +162,48 @@ header {
 	text-decoration: underline;
 }
 
+.social {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
 .social a {
-  color: #fff;
+	position: relative;
+	cursor: pointer;
+  color: #1a1a1a;
   text-decoration: none;
+	margin: 5px;
 }
 
-.social {
-  position: fixed;
-  top: calc(var(--index) * 15);
-	width: calc(var(--index) * 3);
+.social a:after {
+	content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px; /* Высота линии */
+    background-color: black; /* Цвет подчеркивания при исчезании линии*/
+    transition: width 0.5s; /* Время эффекта */
 }
-.social ul {
-  transform: translate(-270px, 0);
+
+.social a:hover:after {
+	content: "";
+    width: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 2px; /* Высота линии */
+    background-color: red; /* Цвет подчеркивания при появлении линии*/
+    transition: width 0.5s;  /* Время эффекта */
 }
-.social ul li {
-  display: block;
-	background-color: #858585;
-  margin: calc(var(--index) * .2);
-  width: 300px;
-  text-align: right;
-  padding: calc(var(--index) * .6);
-  border-radius: 0 30px 30px 0;
-  transition: all 1s;
+
+.social i {
+	margin: 5px;
 }
-.social ul li:hover {
-  transform: translate(110px, 0);
-  background: rgba(0, 0, 0, 1);
-}
-.social ul li:hover a {
-  color: #ffffff;
-}
-.social ul li:hover i {
-  color: #ffffff;
-  transform: rotate(360deg);
-  transition: all 1s;
-}
-.social ul li i {
-  margin-left: calc(var(--index) * .8);
-  color: #ffffff;
-  padding: calc(var(--index) * .7);
-  border-radius: 50%;
-  width: calc(var(--index) * .5);
-  height: calc(var(--index) * .5);
-  font-size: calc(var(--index) * 1.25);
-  background: #ffffff;
-  transform: rotate(0deg);
-}
+
 
 
 /* .cursor {
