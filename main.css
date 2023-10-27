@@ -101,7 +101,7 @@ animation: ani 1.5s forwards;
 	margin-bottom:calc(var(--index) * .2);
 }
 .poems h3 {
-	font-size: calc(var(--index) * .8);
+	font-size: calc(var(--index) * .5);
 	margin-bottom:calc(var(--index) * .2);
 }
 .poems p {
@@ -126,8 +126,7 @@ background-image: linear-gradient(to right, #a6a5a5, #2d2c2c, #8f8e8e);
 }
 
 header {
-	height: calc(var(--index) * 5);
-	background-image: url(1.jpg);
+	height: calc(var(--index) * 10);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -140,8 +139,9 @@ header {
 
 .copy {
 	position: relative;
-	top: calc(var(--index) * .5);
-	bottom: calc(var(--index) * .5);
+	text-align: center;
+	/* top: calc(var(--index) * .5);
+	bottom: calc(var(--index) * .5); */
 	font-size: calc(var(--index) * .6);
 	letter-spacing: calc(var(--index) / 35);
 }
